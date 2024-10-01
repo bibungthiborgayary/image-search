@@ -6,6 +6,7 @@ import ImageList from './components/ImageList';
 import Modal from './components/Modal';
 import Navbar from './components/Navbar'; // Import Navbar
 import axios from 'axios';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 class App extends React.Component {
   state = {
@@ -106,6 +107,7 @@ class App extends React.Component {
             ↑ Top
           </button>
         )}
+        <SpeedInsights/>
       </div>
     );
   }
