@@ -18,7 +18,7 @@ class SearchField extends Component {
     return (
       <div>
         <form onSubmit={this.onFormSubmit} className="flexContainer">
-          <img src="../../public/logo.png" alt="logo" />
+          <img src="../../public/logo.svg" alt="logo" />
           <label htmlFor="search-input"><h2>What are you searching for?</h2></label>
           <input
             placeholder='Enter your search term'
