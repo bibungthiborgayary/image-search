@@ -7,7 +7,7 @@ const ImageList = (props) => {
 
     const imgs = imagesArray.map(img => {
         return (
-          <img key={img.id} src={img.urls.regular} alt={img.alt_description} onClick={()=> props.onImageClick(img)}/>
+          <img key={img.id} src={img.urls.full} alt={img.alt_description} onClick={()=> props.onImageClick(img)}/>
         );
     })
   return (
