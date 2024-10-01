@@ -1,9 +1,11 @@
-import "./App.css";
-import SearchField from "./components/SearchField";
-import React from "react";
-import ImageList from "./components/ImageList";
-import Modal from "./components/Modal";
-import axios from "axios";
+// src/App.jsx
+import React from 'react';
+import './App.css';
+import SearchField from './components/SearchField';
+import ImageList from './components/ImageList';
+import Modal from './components/Modal';
+import Navbar from './components/Navbar'; // Import Navbar
+import axios from 'axios';
 
 class App extends React.Component {
   state = {
@@ -13,17 +15,17 @@ class App extends React.Component {
     loading: false,
     term: '',
     showScrollTopButton: false,
-    searchPerformed: false, // New state to track if a search was performed
+    searchPerformed: false,
   };
 
   API_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll); // Attach scroll listener
+    window.addEventListener('scroll', this.handleScroll); // Attach scroll listener
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll); // Clean up scroll listener
+    window.removeEventListener('scroll', this.handleScroll); // Clean up scroll listener
   }
 
   onSearchSubmit = async (term, newSearch = true) => {
@@ -34,15 +36,15 @@ class App extends React.Component {
     this.setState({ loading: true });
 
     try {
-      const response = await axios.get("https://api.unsplash.com/search/photos", {
+      const response = await axios.get('https://api.unsplash.com/search/photos', {
         params: {
           query: term,
           page: this.state.page,
           per_page: 30,
         },
         headers: {
-          Authorization: "Client-ID " + this.API_KEY,
-        }
+          Authorization: 'Client-ID ' + this.API_KEY,
+        },
       });
 
       this.setState((prevState) => ({
@@ -51,14 +53,18 @@ class App extends React.Component {
         loading: false,
       }));
     } catch (error) {
-      console.error("Error fetching images", error);
+      console.error('Error fetching images', error);
       this.setState({ loading: false });
     }
   };
 
   handleScroll = () => {
     // Scroll detection logic for loading more images
-    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 100 && !this.state.loading) {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+        document.documentElement.offsetHeight - 100 &&
+      !this.state.loading
+    ) {
       this.onSearchSubmit(this.state.term, false);
     }
 
@@ -85,8 +91,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        <Navbar /> {/* Add Navbar here */}
         <SearchField userSubmit={this.onSearchSubmit} />
-        {this.state.searchPerformed && ( // Only show this after search has been performed
+        {this.state.searchPerformed && (
           <span className="image-counter">Found: {this.state.images.length} images</span>
         )}
         <ImageList foundImages={this.state.images} onImageClick={this.onImageClick} />
