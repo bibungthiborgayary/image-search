@@ -1,9 +1,9 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types'; // Import PropTypes for validation
-import './searchField.css';
+import { Component } from "react";
+import PropTypes from "prop-types"; // Import PropTypes for validation
+import "./searchField.css";
 
 class SearchField extends Component {
-  state = { val: '' };
+  state = { val: "" };
 
   onInputChange = (event) => {
     this.setState({ val: event.target.value });
@@ -18,19 +18,22 @@ class SearchField extends Component {
     return (
       <div>
         <form onSubmit={this.onFormSubmit} className="flexContainer">
-  <img src="../../public/logo.svg" alt="logo" />
-  <label htmlFor="search-input"><h2>What are you searching for?</h2></label>
-  <div style={{ display: 'flex', justifyContent: 'center' }}>
-    <input
-      placeholder="Enter your search term"
-      className="inputStyle"
-      type="text"
-      value={this.state.val}
-      onChange={this.onInputChange}
-    />
-    <button type="submit" className="searchButton">Search</button>
-  </div>
-</form>
+          <label htmlFor="search-input">
+            <h2>What are you searching for?</h2>
+          </label>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <input
+              placeholder="Enter your search term"
+              className="inputStyle"
+              type="text"
+              value={this.state.val}
+              onChange={this.onInputChange}
+            />
+            <button type="submit" className="searchButton">
+              Search
+            </button>
+          </div>
+        </form>
       </div>
     );
   }
