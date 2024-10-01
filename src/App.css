@@ -1,78 +1,42 @@
-/* App.css */
-
-
-/* Apply a smooth cold gradient to the root element (like body or .app) */
+/* General typography changes */
 body, .app {
-  background: rgb(211,210,233);
-  background: radial-gradient(circle, rgba(211,210,233,1) 0%, rgba(178,255,181,1) 39%, rgba(174,217,219,1) 71%, rgba(214,188,192,1) 94%);
+  background: linear-gradient(147deg, rgba(240,240,240,1) 0%, rgba(190,190,190,1) 100%);
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;
 }
 
-/* Gradient animation to make it more dynamic */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.4em;
+  color: #333;
 }
 
+/* Refined scroll-to-top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px;
+  font-size: 16px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
 
-/* General container styles */
-.app {
-    text-align: center;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
-    min-height: 100vh;
-  }
-  
-  /* Header styles */
-  .app__header {
-    margin-bottom: 40px;
-  }
-  
-  .image-counter {
-    display: block;
-    margin-top: 10px;
-    font-size: 1.2em;
-    color: #007bff;
-  }
-  
-  /* Main section styles */
-  .app__main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Responsive design for smaller screens */
-  @media (max-width: 768px) {
-    .app__main {
-      padding: 10px;
-    }
-  }
-  
-  .scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px; /* Change from left to right */
-    padding: 10px 15px;
-    font-size: 18px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-  }
-  
-  .scroll-to-top:hover {
-    opacity: 1;
-  }
-  
-  
+.scroll-to-top:hover {
+  opacity: 1;
+}
+
+/* Image list hover effect */
+.image__list img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}

@@ -18,16 +18,19 @@ class SearchField extends Component {
     return (
       <div>
         <form onSubmit={this.onFormSubmit} className="flexContainer">
-          <img src="../../public/logo.svg" alt="logo" />
-          <label htmlFor="search-input"><h2>What are you searching for?</h2></label>
-          <input
-            placeholder='Enter your search term'
-            className="inputStyle"
-            type="text"
-            value={this.state.val}
-            onChange={this.onInputChange}
-          />
-        </form>
+  <img src="../../public/logo.svg" alt="logo" />
+  <label htmlFor="search-input"><h2>What are you searching for?</h2></label>
+  <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <input
+      placeholder="Enter your search term"
+      className="inputStyle"
+      type="text"
+      value={this.state.val}
+      onChange={this.onInputChange}
+    />
+    <button type="submit" className="searchButton">Search</button>
+  </div>
+</form>
       </div>
     );
   }

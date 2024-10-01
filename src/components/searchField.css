@@ -1,57 +1,77 @@
-/* SearchField.css */
-
 /* Container styling */
 .flexContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 20px auto;
-    padding: 15px;
-    max-width: 600px;
-    border-radius: 10px;
-    background: rgb(238,174,202);
-    background: linear-gradient(147deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Label styling */
-  label {
-    margin-bottom: 10px;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-  }
-  
-  /* Input field styling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 600px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+label {
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+/* Input field styling */
+.inputStyle {
+  width: 70%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  outline: none;
+  margin-right: 10px;
+}
+
+.inputStyle:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Responsive design: Adjust input width on smaller screens */
+@media (max-width: 600px) {
   .inputStyle {
-    width: 70%;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
-    outline: none;
-  }
-  
-  /* Input focus effect */
-  .inputStyle:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  /* Responsive design: Adjust input width on smaller screens */
-  @media (max-width: 600px) {
-    .inputStyle {
       width: 90%;
-    }
   }
-  
-  /* Form title (h2) styling */
-  h2 {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.5em;
-    color: #007bff;
-    margin: 0 0 10px 0;
-    text-align: center;
-  }
-  
+}
+
+/* Search button styling */
+.searchButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4a4a4a; /* Neutral gray to match palette */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+}
+
+/* Hover state with a lighter gray color */
+.searchButton:hover {
+  background-color: #787878; /* A lighter tone of gray */
+  transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+/* Click state with a color shift to give feedback */
+.searchButton:active {
+  background-color: #a0a0a0; /* An even lighter gray tone */
+  transform: scale(0.98); /* Slight shrink on click */
+}
+
+/* Form title (h2) styling */
+h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.4em;
+  color: #007bff;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
