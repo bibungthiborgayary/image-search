@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './NavBar.css';
+import './Navbar.css';
 
 const NavBar = () => {
   const [isMenuModalVisible, setMenuModalVisible] = useState(false);
