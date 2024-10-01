@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for validation
-import './SearchField.css';
+import './searchField.css';
 
 class SearchField extends Component {
   state = { val: '' };
@@ -18,7 +18,7 @@ class SearchField extends Component {
     return (
       <div>
         <form onSubmit={this.onFormSubmit} className="flexContainer">
-          <label htmlFor="search"><h2>What are you searching for???????</h2></label>
+          <label htmlFor="search-input"><h2>What are you searching for???????</h2></label>
           <input
             className="inputStyle"
             type="text"
