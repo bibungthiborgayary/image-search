@@ -7,27 +7,23 @@
     align-items: center;
     padding: 10px;
     background-color: #eee8df;
-  }
-  
-  .navbar__left .menu-button {
-    background-color: #cff1d0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__left .menu-button {
     border: none;
-    color: rgb(228, 221, 221);
-    padding: 10px 20px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .menu-button:hover {
+    transition: transform 0.2s ease;
+    height: 80px;
+}
+
+.menu-button:hover {
     transform: scale(1.1);
-  }
-  
-  .navbar__right .navbar__item {
+}
+
+.navbar__right .navbar__item {
     color: #333;
     text-decoration: none;
     padding: 10px 15px;
@@ -35,14 +31,14 @@
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
-  }
-  
-  .navbar__right .navbar__item:hover {
+}
+
+.navbar__right .navbar__item:hover {
     color: #d8d6cd;
-  }
-  
-  /* Modal Overlay and Popup Styles */
-  .overlay {
+}
+
+/* Modal Overlay and Popup Styles */
+.overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -53,18 +49,18 @@
     opacity: 0;
     transition: opacity 200ms, visibility 200ms;
     z-index: 1000; /* Ensure it appears above other content */
-  }
-  
-  .overlay.light {
+}
+
+.overlay.light {
     background: rgba(255, 255, 255, 0.5);
-  }
-  
-  .overlay.show {
+}
+
+.overlay.show {
     visibility: visible;
     opacity: 1;
-  }
-  
-  .popup {
+}
+
+.popup {
     margin: 100px auto;
     padding: 20px;
     background: #fff;
@@ -73,15 +69,16 @@
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 1001; /* Ensure it appears above the overlay */
-  }
-  
-  .popup h2 {
+    border-radius: 8px; /* Rounded corners for the popup */
+}
+
+.popup h2 {
     margin-top: 0;
     color: #666;
     font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
-  }
-  
-  .popup .close {
+}
+
+.popup .close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -92,42 +89,41 @@
     cursor: pointer;
     opacity: 0.8;
     transition: opacity 200ms;
-  }
-  
-  .popup .close:hover {
+}
+
+.popup .close:hover {
     opacity: 1;
-  }
-  
-  .popup .content {
+}
+
+.popup .content {
     max-height: 400px;
     overflow: auto;
-  }
-  
-  .popup .content a {
+}
+
+.popup .content a {
     display: block;
     margin-bottom: 1em;
     text-decoration: none;
     color: #4CAF50;
     font-weight: bold;
-  }
-  
-  .popup .content a:hover {
+}
+
+.popup .content a:hover {
     text-decoration: underline;
-  }
-  
-  /* Center the modal */
-  .overlay.show .popup {
+}
+
+/* Center the modal */
+.overlay.show .popup {
     animation: fadeIn 0.3s ease-out;
-  }
-  
-  @keyframes fadeIn {
+}
+
+@keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: translateY(-10px);
+        opacity: 0;
+        transform: translateY(-10px);
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  
+}

@@ -19,7 +19,7 @@ class SearchField extends Component {
       <div>
         <form onSubmit={this.onFormSubmit} className="flexContainer">
           <label htmlFor="search-input">
-            <h2>What are you searching for?</h2>
+            <h2>What Image are you searching for? </h2>
           </label>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <input
@@ -30,7 +30,7 @@ class SearchField extends Component {
               onChange={this.onInputChange}
             />
             <button type="submit" className="searchButton">
-              Search
+              Search &#128269;
             </button>
           </div>
         </form>

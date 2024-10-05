@@ -1,32 +1,29 @@
-import PropTypes from "prop-types"
-import "./ImageList.css"
+import PropTypes from 'prop-types';
+import "./ImageList.css";
 
-const ImageList = (props) => {
-
-  const imagesArray = Array.isArray(props.foundImages) ? props.foundImages : [props.foundImages]
-
-    const imgs = imagesArray.map(img => {
-        return (
-          <img key={img.id} src={img.urls.full} alt={img.alt_description} onClick={()=> props.onImageClick(img)}/>
-        );
-    })
+const ImageList = ({ foundImages, onImageClick }) => {
   return (
     <div className="image__list">
-        {imgs}
+      {foundImages.map((image) => (
+        <div key={image.id.toString()} className="image__item" onClick={() => onImageClick(image)}>
+          <img src={image.src.large} alt={image.alt || "image"} />
+        </div>
+      ))}
     </div>
-  )
+  );
 };
+
 ImageList.propTypes = {
   foundImages: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,           // Each image must have an id
-      urls: PropTypes.shape({
-        regular: PropTypes.string.isRequired,    // The URL for the image must be provided
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      src: PropTypes.shape({
+        large: PropTypes.string.isRequired,
       }).isRequired,
-      alt_description: PropTypes.string,         // Alt text is optional but recommended
+      alt: PropTypes.string,
     })
-  ).isRequired, 
-  onImageClick: PropTypes.func.isRequired,                                 // foundImages should be an array and is required
+  ).isRequired,
+  onImageClick: PropTypes.func.isRequired,
 };
 
-export default ImageList
+export default ImageList;

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Navbar.css';
+import menuIcon from '../Assets/images/menu.svg'; // Default import for the SVG as a URL
 
 const NavBar = () => {
   const [isMenuModalVisible, setMenuModalVisible] = useState(false);
@@ -20,9 +21,7 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <div className="navbar__left">
-        <button className="menu-button" onClick={toggleMenuModal}>
-          &#9776;
-        </button>
+      <img src={menuIcon} alt="Menu" className="menu-button" onClick={toggleMenuModal} />
       </div>
       <div className="navbar__right">
         <span className="navbar__item" onClick={handleHomeClick}>Home</span>

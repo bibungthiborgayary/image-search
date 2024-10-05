@@ -2,12 +2,13 @@ import PropTypes from "prop-types";
 import "./Modal.css";
 
 const Modal = ({ selectedImage, closeModal }) => {
+  console.log("Selected Image: ", selectedImage);
   if (!selectedImage) return null; // Don't render anything if no image is selected
 
   return (
     <div className="modal" onClick={closeModal}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <img src={selectedImage.urls.regular} alt={selectedImage.alt_description || "Image"} />
+        <img src={selectedImage.src.large} alt={selectedImage.alt || "Image"} />
         <span className="close-button" onClick={closeModal}>&times;</span>
       </div>
     </div>
@@ -16,10 +17,10 @@ const Modal = ({ selectedImage, closeModal }) => {
 
 Modal.propTypes = {
     selectedImage: PropTypes.shape({
-      urls: PropTypes.shape({
-        regular: PropTypes.string.isRequired, // The URL for the image must be provided
+      src: PropTypes.shape({
+        large: PropTypes.string.isRequired, // The URL for the image must be provided
       }).isRequired,
-      alt_description: PropTypes.string, // Alt text is optional
+      alt: PropTypes.string, // Alt text is optional
     }),
     closeModal: PropTypes.func.isRequired, // closeModal must be a function
   };

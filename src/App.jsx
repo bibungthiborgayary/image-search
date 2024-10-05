@@ -19,7 +19,7 @@ class App extends React.Component {
     searchPerformed: false,
   };
 
-  API_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+  API_KEY = import.meta.env.VITE_PEXELS_API_KEY;
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll); // Attach scroll listener
@@ -34,22 +34,23 @@ class App extends React.Component {
       this.setState({ images: [], page: 1, term, searchPerformed: true }); // Reset images, page, term, and set searchPerformed
     }
 
+    if(!term) return; // Don't make a request if the search term is empty
     this.setState({ loading: true });
 
     try {
-      const response = await axios.get('https://api.unsplash.com/search/photos', {
+      const response = await axios.get('https://api.pexels.com/v1/search', {
         params: {
           query: term,
           page: this.state.page,
           per_page: 30,
         },
         headers: {
-          Authorization: 'Client-ID ' + this.API_KEY,
+          Authorization: this.API_KEY,
         },
       });
 
       this.setState((prevState) => ({
-        images: [...prevState.images, ...response.data.results],
+        images: [...prevState.images, ...response.data.photos],
         page: prevState.page + 1,
         loading: false,
       }));
@@ -78,10 +79,12 @@ class App extends React.Component {
   };
 
   onImageClick = (image) => {
+    console.log("Image clicked: ", image);
     this.setState({ selectedImage: image });
   };
 
   closeModal = () => {
+    console.log("Closing modal...");
     this.setState({ selectedImage: null });
   };
 
